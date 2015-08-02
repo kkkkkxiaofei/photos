@@ -176,9 +176,13 @@ $().ready(function(){
 		var activedId = actived.attr('id');
 		elements[activedId].css('display', 'none');
 		var currentId = $(this).attr('id');
-		elements[currentId].css('display', 'block');
+		var currentElement = elements[currentId];  
+		currentElement.css('display', 'block');
 		actived.removeClass('actived');
 		$(this).addClass('actived');
+		if(currentElement.children().length == 0) {
+			$('#show-more').click();
+		}
 	});
 
 	//click me show more
