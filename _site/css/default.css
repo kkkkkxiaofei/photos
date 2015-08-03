@@ -1,0 +1,249 @@
+.body {
+	background-image: url('../img/back.jpg');
+	background-repeat: repeat;
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+}
+
+.title {
+	width: 70%;
+	height: 180px;
+	margin: 50px auto 70px auto;
+	background-color: #fff;
+	border: 3px solid #000;
+	text-align: center;
+}
+
+.title h1 {
+	font: normal normal normal 70px georgia,palatino,'book antiqua','palatino linotype',serif;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+
+.title .category p {
+	font: italic normal normal 16px/1.4em georgia,palatino,'book antiqua','palatino linotype',serif;
+	display: inline-block;
+	margin: 0 15px 0 15px;
+	color: #858484;
+	transition: color .5s linear 0s;
+	font-weight: bold;
+}
+
+.title .category p.actived {
+	color: #000;
+}
+
+.title .category p:hover {
+	color: #000;
+	cursor: pointer;
+}
+
+.photo-box {
+	width: 70%;
+	height: 100%;
+	margin: 0 auto 0 auto;
+}
+
+.photo-box .photo-cell {
+	width: 200px;
+	height: 200px;
+	position: relative;
+}
+
+
+.photo-description {
+	height: 20px;
+	width: 100%;
+	background-color: #000;
+	position: absolute;
+	color: #fff;
+	bottom: -10px;
+	transition: bottom .5s ease 0s;
+	opacity: 0;
+}
+
+.photo-box .photo-cell:hover .photo-description {
+	bottom: 0px;
+	opacity: .5;
+}
+
+#show-more {
+	height: 50px;
+	width: 100%;
+	opacity: 0.5;
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+}
+
+#show-more:hover {
+	font-size: 105%;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/** 3d style **/
+.transform3D {
+	perspective: 800px;
+	perspective-origin: 50% 50%;
+	height: 200px;
+}
+
+.cube {
+	height: 200px;
+	transform-style: preserve-3d;
+	position: relative;
+	width: 200px;
+	animation: cube 4s infinite linear;
+	transition: all 1s linear;
+}
+
+.cube:hover {
+	transform: rotateX(90deg);
+}
+
+.face {
+	position: absolute;
+	height: 160px;
+	width: 160px;
+	padding: 20px;
+	background-color: rgba(50, 50, 50, 0.3);
+	-webkit-backface-visibility: visible;
+	-moz-backface-visibility: visible;
+	-ms-backface-visibility: visible;
+	backface-visibility: visible;
+	border: 1px #aaa solid;
+}
+
+.one {
+	transform: rotateX(90deg) translateZ(100px);
+
+}
+
+.two {
+	transform: translateZ(100px);
+}
+
+.three {
+	transform: rotateY(90deg) translateZ(100px);
+}
+
+.four {
+	transform: rotateY(180deg) translateZ(100px);
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+.five {
+	transform: rotateY(-90deg) translateZ(100px);
+}
+
+.six {
+	transform: rotateX(-90deg) translateZ(100px) rotate(180deg);
+	background-color: rgba(0, 0, 255, 0.5);
+}
+
+@keyframes cube1 {
+	0% {
+		transform: rotateX(0deg);
+
+	}
+	100% {
+		transform: rotateX(360deg);
+	}
+}
+
+/** 3d style end **/
+
+
+/** us-photo **/
+
+.us-photo,
+.family-photo,
+.life-photo,
+.favorite-photo {
+	-webkit-column-count: 3;
+	-webkit-column-gap: 3px;
+	-moz-column-count: 3;
+	-moz-column-gap: 3px;
+	column-count: 3;
+	column-gap: 3px;
+}
+
+.us-photo .us-photo-cell,
+.family-photo .family-photo-cell,
+.life-photo .life-photo-cell,
+.favorite-photo .favorite-photo-cell {
+	border: 3px solid #fff;
+	margin-bottom: 3px;
+	position: relative;
+}
+
+.us-photo .us-photo-cell:hover .photo-description, 
+.family-photo .family-photo-cell:hover .photo-description, 
+.life-photo .life-photo-cell:hover .photo-description, 
+.favorite-photo .favorite-photo-cell:hover .photo-description {
+	bottom: 0px;
+	opacity: .8;
+}
+
+.us-photo img, 
+.family-photo img, 
+.life-photo img, 
+.favorite-photo img {
+	width: 100% !important;
+    height: auto !important;
+    margin-bottom: -4px;
+}
+
+
+/* us-photo end*/
+
+/* family-photo */
+.family-photo {
+	-webkit-column-count: 3;
+	-webkit-column-gap: 3px;
+	-moz-column-count: 3;
+	-moz-column-gap: 3px;
+	column-count: 3;
+	column-gap: 3px;
+}
+
+/* family-photo end*/
+
+/* life-photo */
+.life-photo {
+	-webkit-column-count: 3;
+	-webkit-column-gap: 3px;
+	-moz-column-count: 3;
+	-moz-column-gap: 3px;
+	column-count: 3;
+	column-gap: 3px;
+}
+/* life-photo end*/
+
+/* favorite-photo */
+.family-photo {
+	-webkit-column-count: 3;
+	-webkit-column-gap: 3px;
+	-moz-column-count: 3;
+	-moz-column-gap: 3px;
+	column-count: 3;
+	column-gap: 3px;
+}
+/* favorite-photo end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
