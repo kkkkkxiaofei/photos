@@ -188,10 +188,7 @@ $().ready(function(){
 
 	function loadPhoto(element, config) {
 		if(config.count == config.MAX_COUNT) return;
-		//start loding class
-		var showMoreBtn = $('#show-more');
-		showMoreBtn.text('Loading...');
-		showMoreBtn.addClass('loading');
+		creaetFakeLoadingStyle();
 		var start = config.count * config.size, type = element.attr('class'), end;
 		if(config.MAX_COUNT - config.count == 1) {
 			end = config.srcListLen - 1;
@@ -208,10 +205,18 @@ $().ready(function(){
 	        element.append(photoCell);
 		}
 		config.count++;
-		showMoreBtn.removeClass('loading');
-		showMoreBtn.text('Click Me Show More');
+		
 	}
 
+	function creaetFakeLoadingStyle() {
+		var showMoreBtn = $('#show-more');
+		showMoreBtn.text('Loading...');
+		showMoreBtn.addClass('loading');
+		setTimeout(function() {
+			showMoreBtn.removeClass('loading');
+			showMoreBtn.text('Click Me Show More');
+		}, 3000);
+	}
 	
 	//switch category(without loading)
 	$('.category p').click(function() {
