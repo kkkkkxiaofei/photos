@@ -58,7 +58,7 @@
 	background-color: #000;
 	position: absolute;
 	color: #fff;
-	bottom: -10px;
+	bottom: -4px;
 	transition: bottom .5s ease 0s;
 	opacity: 0;
 }
@@ -168,6 +168,7 @@
 	-moz-column-gap: 3px;
 	column-count: 3;
 	column-gap: 3px;
+	padding-bottom: 20px;
 }
 
 .us-photo .us-photo-cell,
