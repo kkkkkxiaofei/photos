@@ -120,19 +120,56 @@ $().ready(function(){
 		"IMG_2975.jpeg"
 	];
 
-	
+	var favoriteList = [
+		"0dda7ba243f130c94aef66bc8f40bb34.jpg",
+		"0f2ec8aab3e4031917e9713726822850.jpg",
+		"0fc44e18a2d4120a0ea5a4f49e0607bd.jpg",
+		"2c2a3eb593e5eb5c9cae2fcad1351623.jpg",
+		"4db42e176c6d780dc73f4a00fe800660.jpg",
+		"6b4545bc2996cfbe86e242128e4a33e3.jpg",
+		"6d15069be9768163e04703c9e61b5120.jpg",
+		"7c6fdf7390743f66757901814e0dff3b.jpg",
+		"8ae0e061d72b417295698ec6f06227c7.jpg",
+		"14cc77a6842c117cb78fd97e3ff33e97.jpg",
+		"16ad3408c8afcf7015758a5e0c3c2ebf.jpg",
+		"30cd0f75cb01f15321b9b410b8edd8f1.jpg",
+		"0038d6278ff927f3f3193c26dfb458cd.jpg",
+		"81eb7d2bfb99e21c4aeac83a94bab5d7.jpg",
+		"92bb4578c568fedb69396f9a4c2c4d00.jpg",
+		"097e11af0a0ef49dcc7fd35df618b8eb.jpg",
+		"572cb30dafcbc39c8f45d143e2a5675a.jpg",
+		"642330fde54011e3e17611657fbdf932.jpg",
+		"4490036e15478b675367f114e1bf7771.jpg",
+		"a08a781f2ef3c9229f5c6d4ac278d357.jpg",
+		"ab24ede19a85921f58a3d48761aaa010.jpg",
+		"b9eab279adc4e3a0a61e4aa4409aebb9.jpg",
+		"b67cc0fa7010438b8d91935bb568860e.jpg",
+		"c4be389b3186f0c92fb626a6290e3592.jpg",
+		"ca1c4014da17513c01a399acb9b56c93.jpg",
+		"cafdb4e8a8755198ed3a6c499d1eda3e.jpg",
+		"cddeb06d31a8504333d66aa22d23ff3e.jpg",
+		"d7c8c9e6c7d8ab0046d58f38fec3f494.jpg",
+		"d6700c2ab76ad3566b77b85a316c5477.jpg",
+		"d90624920e83a4e709a5a70cd80b93d5.jpg",
+		"daae119f2f71bb025996fa95d1491c46.jpg",
+		"dc29aaa3468bf963a3ca9fb783776e48.jpg",
+		"fbf52fbcab918a33de9cd28e3e455ad0.jpg",
+		"fe839fdf64de5f6753974edac39257d5.jpg"
+	];
 
 
 	var configs = {
 		"us-photo": new Config(usList),
 		"family-photo": new Config(familyList),
-		"life-photo": new Config(lifeList)	
+		"life-photo": new Config(lifeList),
+		"favorite-photo": new Config(favoriteList)	
 	};
 
 	var elements = {
 		"us-photo": $('.us-photo'),
 		"family-photo": $('.family-photo'),
-		"life-photo": $('.life-photo')	
+		"life-photo": $('.life-photo'),
+		"favorite-photo": $('.favorite-photo')	
 	};
 
 	function Config(photoSrcList) {
