@@ -207,7 +207,7 @@
 	position: absolute;
 	height: 160px;
 	width: 160px;
-	padding: 40px;
+	padding: 20px;
 	background-color: rgba(50, 50, 50, 0.3);
 	-webkit-backface-visibility: visible;
 	-moz-backface-visibility: visible;
@@ -268,7 +268,7 @@
 	-moz-column-gap: 3px;
 	column-count: 3;
 	column-gap: 3px;
-	padding-bottom: 20px;
+	padding-bottom: 40px;
 }
 
 .us-photo .us-photo-cell,
