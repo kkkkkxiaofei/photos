@@ -61,6 +61,7 @@
 	bottom: -4px;
 	transition: bottom .5s ease 0s;
 	opacity: 0;
+	text-align: center;
 }
 
 .photo-box .photo-cell:hover .photo-description {
@@ -70,7 +71,7 @@
 
 #show-more {
 	height: 50px;
-	width: 30%;
+	width: 300px;
 	opacity: 0.5;
 	color: #fff;
 	text-align: center;
@@ -129,6 +130,61 @@
 		-o-transform:rotate(-90deg); 
 	}
 }
+
+/* responsive */
+@media screen and (max-width: 801px) {
+	.photo-box,
+	.title {
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 601px) {
+	.photo-box,
+	.title {
+		width: 96%;
+	}
+
+	.photo-box .us-photo,
+	.photo-box .family-photo,
+	.photo-box .life-photo,
+	.photo-box .favorite-photo {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+	}
+
+	#show-more {
+		height: 30px;
+		width: 200px;
+		line-height: 30px;
+		font-size: 20px;
+	}
+
+	.title h1 {
+		font-size: 40px;
+		margin: 10px 0 10px 0;
+	}
+
+	.title .category p {
+		margin: 0 8px 0 8px;
+	}
+
+	body .title {
+		height: 110px;
+	}
+
+	.us-photo .us-photo-cell .photo-description, 
+	.family-photo .family-photo-cell .photo-description, 
+	.life-photo .life-photo-cell .photo-description, 
+	.favorite-photo .favorite-photo-cell .photo-description {
+		font-size: 10px;
+		height: 12px;
+		line-height: 12px;
+	}
+}
+/* responsive end*/
+
 /** 3d style **/
 .transform3D {
 	perspective: 800px;
