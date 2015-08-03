@@ -193,6 +193,7 @@
 .favorite-photo img {
 	width: 100% !important;
     height: auto !important;
+    margin-bottom: -4px;
 }
 
 
