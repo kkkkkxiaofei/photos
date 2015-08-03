@@ -74,7 +74,7 @@
 	color: #fff;
 	text-align: center;
 	line-height: 50px;
-	margin: 0 auto 30px auto;
+	margin: 0 auto 10px auto;
 	font-size: 25px;
 	text-align: center;
 	border: 3px solid #fff;
@@ -207,7 +207,7 @@
 	position: absolute;
 	height: 160px;
 	width: 160px;
-	padding: 20px;
+	padding: 40px;
 	background-color: rgba(50, 50, 50, 0.3);
 	-webkit-backface-visibility: visible;
 	-moz-backface-visibility: visible;
