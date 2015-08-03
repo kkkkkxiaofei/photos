@@ -160,7 +160,7 @@ $().ready(function(){
 		for(var i = start;i < end; i++){
 			var photoCell = $(
 				'<div class="'+ type +'-cell">' +
-	                '<img src="../img/' + type + '/' + config.srcList[i] + '">' +
+	                '<img src="img/' + type + '/' + config.srcList[i] + '">' +
 	                '<div class="photo-description">this is photo descrition</div>' +
 	            '</div>'
 	        );
