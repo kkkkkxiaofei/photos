@@ -82,13 +82,13 @@
 }
 
 .loading{
-	-webkit-animation: up-down 3s linear 0s infinite alternate;
-	-o-animation: up-down 3s linear 0s infinite alternate;
-	-moz-animation: up-down 3s linear 0s infinite alternate;
-	animation: up-down 3s linear 0s infinite alternate;
+	-webkit-animation: load 3s linear 0s;
+	-o-animation: load 3s linear 0s;
+	-moz-animation: load 3s linear 0s;
+	animation: load 3s linear 0s;
 }
 
-@-webkit-keyframes up-down {
+@-webkit-keyframes load {
 	0% {
 		transform: rotateY(90deg);
 		-ms-transform: rotateY(90deg); 	/* IE 9 */
@@ -106,7 +106,7 @@
 	}
 }
 
-@keyframes up-down {
+@keyframes load {
 	0% {
 		transform:rotateY(90deg);
 		-ms-transform:rotateY(90deg); 	/* IE 9 */
