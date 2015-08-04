@@ -62,11 +62,6 @@
 	text-align: center;
 }
 
-.photo-box .photo-cell:hover .photo-description {
-	bottom: 0px;
-	opacity: .5;
-}
-
 #show-more {
 	height: 50px;
 	width: 300px;
@@ -274,7 +269,6 @@
 .family-photo .family-photo-cell,
 .life-photo .life-photo-cell,
 .favorite-photo .favorite-photo-cell {
-	border: 3px solid #fff;
 	margin-bottom: 3px;
 	position: relative;
 }
