@@ -13,7 +13,7 @@ function vistAllFiles(obj) {
         _storeDir('../img/family-photo', obj['family-photo'], _getLen('../img/family-photo'), function() {
             _storeDir('../img/life-photo', obj['life-photo'], _getLen('../img/life-photo'), function() {
                 _storeDir('../img/favorite-photo', obj['favorite-photo'], _getLen('../img/favorite-photo'), function() {
-                    _wirteToXML(js2xmlparser('photos', obj));
+                    _wirteToXML(obj);
                 });
             });
         });
@@ -44,7 +44,14 @@ function _storeDir(dir, arr, count, callback) {
     });
 }
 
-function _wirteToXML(data) {
+function _wirteToXML(obj) {
+    var keys = Object.keys(obj);
+    for(var i in keys) {
+        obj[keys[i]].sort(function (a, b) {
+            return !(a - b);
+        });
+    }
+    var data = js2xmlparser('photos', obj);
     fs.writeFile('./1.xml', data, function (err) {
       if (err) return console.log(err);
     });
