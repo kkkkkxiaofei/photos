@@ -33,7 +33,8 @@ function _storeDir(dir, arr, count, callback) {
                 return function(err, stats) {
                     if(file.indexOf('DS_Store') == -1) {
                         var date = new Date(stats.birthtime);
-                        arr.push({'file_name': file,'created_at': date.toLocaleDateString()});
+                        var src = file.substr(3);
+                        arr.push({'file_name': src,'created_at': date.toLocaleDateString()});
                     }
                     if(index + 1 == count) {
                         callback();
