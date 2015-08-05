@@ -31,7 +31,9 @@ function _storeDir(dir, arr, count, callback) {
             var file = dir + '/' + items[i];
             fs.stat(file, (function(file, arr, index, callback) {
                 return function(err, stats) {
-                    arr.push({'file_name': file,'creted_at': stats.birthtime});
+                    if(file.indexOf('DS_Store') == -1) {
+                        arr.push({'file_name': file,'created_at': stats.birthtime});
+                    }
                     if(index + 1 == count) {
                         callback();
                     }
