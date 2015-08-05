@@ -51,7 +51,7 @@ $().ready(function(){
 				var photoCell = $(
 					'<div class="'+ type +'-cell">' +
 		                '<img src="' + config.list[i].file_name + '">' +
-		                '<div class="photo-description">'+ config.list[i].created_at +'</div>' +
+		                '<div class="photo-description">'+ 'Posted on ' + config.list[i].created_at +'</div>' +
 		            '</div>'
 		        );
 		        element.append(photoCell);
