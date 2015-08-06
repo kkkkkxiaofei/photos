@@ -53,7 +53,7 @@ $().ready(function(){
 		                '<img src="' + config.list[i].file_name + '">' +
 		                '<div class="photo-description">'+ 
 		                	'<div class="info">Posted on ' + config.list[i].created_at + '</div> ' +
-		                	'<div class="tool"><a><i class="like"></i><span class="count">like<span></a></div>' + 
+		                	'<div class="tool"><a><i class="like"></i><span class="count">' + config.list[i].like + '<span></a></div>' + 
 		                '</div>' +
 		            '</div>'
 		        );
