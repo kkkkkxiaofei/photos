@@ -60,7 +60,43 @@
 	bottom: -4px;
 	transition: bottom .5s ease 0s;
 	opacity: 0;
-	text-align: center;
+	font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+}
+
+.info {
+	text-align: left;
+	display: inline-block;
+	width: 60%;
+	padding-left: 4px;
+}
+
+.tool {
+	text-align: right;
+	float: right;
+	width: 30%;
+	display: inline-block;
+	padding-right: 2px;
+}
+
+.tool a {
+	display: inline-flex;
+}
+
+.count {
+	display: inline-block;
+	position: relative;
+	margin: 0 2px 0 2px;
+}
+
+.like {
+	background-image: url('../img/like.png');
+	display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.icon:before {
+	content: "\f004";
 }
 
 #show-more {
