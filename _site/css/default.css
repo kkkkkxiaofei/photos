@@ -52,6 +52,7 @@
 
 .photo-description {
 	height: 20px;
+	line-height: 20px;
 	width: 100%;
 	background-color: #000;
 	position: absolute;
