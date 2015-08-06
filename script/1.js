@@ -33,7 +33,11 @@ function readDir(dir, obj) {
         if(dir.indexOf('DS_Store') == -1) {
             var date = new Date(stat.birthtime);
             var src = dir.substr(3);
-            obj[key].push({'file_name': src,'created_at': date.toLocaleDateString()});
+            obj[key].push({
+                'file_name': src,
+                'created_at': date.toLocaleDateString(),
+                'like': Math.floor(Math.random() * 1000 + 1 )
+            });
         }
     }
     return obj;
