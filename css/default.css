@@ -72,27 +72,16 @@
 
 .tool {
 	text-align: right;
+	display: inline-block;
 	float: right;
-	width: 30%;
-	display: inline-block;
 	padding-right: 2px;
-}
-
-.tool a {
-	display: inline-flex;
-}
-
-.count {
-	display: inline-block;
-	position: relative;
-	margin: 0 2px 0 2px;
 }
 
 .like {
 	background-image: url('../img/like.png');
-	display: inline-block;
-    width: 20px;
-    height: 20px;
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
 }
 
 .icon:before {
@@ -162,10 +151,36 @@
 }
 
 /* responsive */
+
+@media screen and (max-width: 1000px) {
+	.photo-box,
+	.title {
+		width: 96%;
+	}
+
+	.us-photo .us-photo-cell .photo-description, 
+	.family-photo .family-photo-cell .photo-description, 
+	.life-photo .life-photo-cell .photo-description, 
+	.favorite-photo .favorite-photo-cell .photo-description {
+		font-size: 12px;
+		height: 20px;
+		line-height: 20px;
+	}
+}
+
 @media screen and (max-width: 801px) {
 	.photo-box,
 	.title {
 		width: 96%;
+	}
+
+	.us-photo .us-photo-cell .photo-description, 
+	.family-photo .family-photo-cell .photo-description, 
+	.life-photo .life-photo-cell .photo-description, 
+	.favorite-photo .favorite-photo-cell .photo-description {
+		font-size: 12px;
+		height: 20px;
+		line-height: 20px;
 	}
 }
 
@@ -208,9 +223,9 @@
 	.family-photo .family-photo-cell .photo-description, 
 	.life-photo .life-photo-cell .photo-description, 
 	.favorite-photo .favorite-photo-cell .photo-description {
-		font-size: 10px;
-		height: 12px;
-		line-height: 12px;
+		font-size: 12px;
+		height: 20px;
+		line-height: 20px;
 	}
 }
 /* responsive end*/
