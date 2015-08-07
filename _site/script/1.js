@@ -6,7 +6,9 @@ function wirteToXML(obj) {
     var keys = Object.keys(obj);
     for(var i in keys) {
         obj[keys[i]].sort(function (a, b) {
-            return !(a - b);
+            console.log(a.created_at,b.created_at);
+            console.log(a.created_at-b.created_at);
+            return a.created_at < b.created_at ? 1 : -1;
         });
     }
     var data = js2xmlparser('photos', obj);
