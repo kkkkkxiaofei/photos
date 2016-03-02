@@ -5,9 +5,9 @@ var fs = require('fs'),
 function wirteToXML(obj) {
     var keys = Object.keys(obj);
     for(var i in keys) {
+        console.log("=======" + keys[i] + "=======");
         obj[keys[i]].sort(function (a, b) {
-            console.log(a.created_at,b.created_at);
-            return a.created_at > b.created_at ? 1 : -1;
+            return new Date(b.created_at) - new Date(a.created_at);
         });
     }
     var data = js2xmlparser('photos', obj);
