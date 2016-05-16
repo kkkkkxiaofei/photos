@@ -2,8 +2,9 @@ var fs = require('fs'),
     js2xmlparser = require("js2xmlparser");
 
 function wirteToXML(obj) {
-    var data = js2xmlparser("root", obj);
-    fs.writeFile('./1.xml', data, function (err) {
+    // var data = js2xmlparser("root", obj.img);
+    var data = JSON.stringify(obj.img);
+    fs.writeFile('./photos.json', data, function (err) {
       if (err) return console.log(err);
     });
 }

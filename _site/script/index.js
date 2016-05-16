@@ -1,15 +1,23 @@
 $().ready(function(){
 
-	$.get('./script/1.xml', function(data) {
+	$.get('./script/photos.json', function(data) {
 		callback(data);
 	});
-
+	function getPhotosByType(type, data) {
+		var store = data[type];
+		var dates = Object.keys(store).slice(1).sort(function(a, b) {return a < b;});
+		var photos = [];
+		dates.forEach(function(date) {
+			photos = photos.concat(store[date].array);
+		});
+		return photos;
+	}
 	function callback(data) {
-		var photos = $.xml2json(data);
-		var usList = photos['us_photo'];
-		var familyList = photos['family_photo'];
-		var lifeList = photos['life_photo'];
-		var favoriteList = photos['favorite_photo'];
+		
+		var usList = getPhotosByType("us-photo", data);
+		var familyList = getPhotosByType("family-photo", data);
+		var lifeList = getPhotosByType("life-photo", data);
+		var favoriteList = getPhotosByType("favorite-photo", data);
 		var configs = {
 			"us-photo": new Config(usList),
 			"family-photo": new Config(familyList),
