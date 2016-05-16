@@ -1,5 +1,4 @@
-var fs = require('fs'), 
-    js2xmlparser = require("js2xmlparser");
+var fs = require('fs');
 
 function wirteToXML(obj) {
     var data = JSON.stringify(obj.img);
