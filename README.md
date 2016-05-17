@@ -1,2 +1,4 @@
 # photos
-This is a responsive photos page, you can visit it by click [https://kkkkkxiaofei.github.io/photos](https://kkkkkxiaofei.github.io/photos)
+Know much about me by clicking [https://kkkkkxiaofei.github.io/photos](https://kkkkkxiaofei.github.io/photos)
+
+`Attention`: *DO NOT USE THE RESOURCES IN THIS SITE WITHOUT MY PERMISSION*
