@@ -5,7 +5,7 @@ $().ready(function(){
 	});
 	function getPhotosByType(type, data) {
 		var store = data[type];
-		var dates = Object.keys(store).slice(1).sort(function(a, b) {return a < b;});
+		var dates = Object.keys(store).slice(1).sort().reverse();
 		var photos = [];
 		dates.forEach(function(date) {
 			photos = photos.concat(store[date].array);
@@ -13,7 +13,7 @@ $().ready(function(){
 		return photos;
 	}
 	function callback(data) {
-		
+
 		var usList = getPhotosByType("us-photo", data);
 		var familyList = getPhotosByType("family-photo", data);
 		var lifeList = getPhotosByType("life-photo", data);
@@ -22,14 +22,14 @@ $().ready(function(){
 			"us-photo": new Config(usList),
 			"family-photo": new Config(familyList),
 			"life-photo": new Config(lifeList),
-			"favorite-photo": new Config(favoriteList)	
+			"favorite-photo": new Config(favoriteList)
 		};
 
 		var elements = {
 			"us-photo": $('.us-photo'),
 			"family-photo": $('.family-photo'),
 			"life-photo": $('.life-photo'),
-			"favorite-photo": $('.favorite-photo')	
+			"favorite-photo": $('.favorite-photo')
 		};
 
 		function Config(photoList) {
@@ -59,7 +59,7 @@ $().ready(function(){
 				var photoCell = $(
 					'<div class="'+ type +'-cell">' +
 		                '<img src="' + config.list[i].file_name + '">' +
-		                '<div class="photo-description">'+ 
+		                '<div class="photo-description">'+
 		                	'<div class="info">Posted on ' + config.list[i].created_at + '</div> ' +
 		                	'<div class="tool count">' + config.list[i].like + '</div>' +
 		                	'<div class="tool like"></div>' +
@@ -69,7 +69,7 @@ $().ready(function(){
 		        element.append(photoCell);
 			}
 			config.count++;
-			
+
 		}
 
 		function creaetFakeLoadingStyle() {
@@ -81,14 +81,14 @@ $().ready(function(){
 				showMoreBtn.text('Click Me Show More');
 			}, 3000);
 		}
-		
+
 		//switch category(without loading)
 		$('.category p').click(function() {
 			var actived = $('.actived');
 			var activedId = actived.attr('id');
 			elements[activedId].css('display', 'none');
 			var currentId = $(this).attr('id');
-			var currentElement = elements[currentId];  
+			var currentElement = elements[currentId];
 			currentElement.css('display', 'block');
 			actived.removeClass('actived');
 			$(this).addClass('actived');
