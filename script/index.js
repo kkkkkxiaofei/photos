@@ -42,7 +42,7 @@ $().ready(function(){
 			this.list = photoList;
 			this.listLen = photoList.length;
 			this.count = 0;
-			this.size = 51; //how many photos loading at one time
+			this.size = 15; //how many photos loading at one time
 			this.MAX_COUNT = this.listLen < this.size ? 1 : parseInt(this.listLen/this.size) + 1;
 		}
 
