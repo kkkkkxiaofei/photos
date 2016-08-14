@@ -19,20 +19,21 @@
 	margin-bottom: 15px;
 }
 
-.title .category p {
+.title .category a {
 	font: italic normal normal 16px/1.4em georgia,palatino,'book antiqua','palatino linotype',serif;
 	display: inline-block;
 	margin: 0 15px 0 15px;
 	color: #858484;
 	transition: color .5s linear 0s;
 	font-weight: bold;
+	text-decoration: none;
 }
 
-.title .category p.actived {
+.title .category a.actived {
 	color: #000;
 }
 
-.title .category p:hover {
+.title .category a:hover {
 	color: #000;
 	cursor: pointer;
 }
@@ -321,6 +322,8 @@
 	-moz-column-gap: 3px;
 	column-count: 3;
 	column-gap: 3px;
+	border: 10px solid white;
+	margin: 20px 0;
 }
 
 .us-photo .us-photo-cell,
