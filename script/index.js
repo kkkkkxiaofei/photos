@@ -80,7 +80,7 @@ $().ready(function(){
 
 			for(var k = start;k < end;k++) {
 				var style = 'style="width:' + config.list[k].width/ROW_WIDTH*100 + '%;height:' + config.list[k].height + 'px;"';
-				var iconSrc = "../img/like.png";
+				var iconSrc = "./img/like.png";
 				var createdAt = config.list[k].width > 270 ? "Posted on " + config.list[k].created_at : "Posted on...";
 				var photoCell = $(
 					'<div class="'+ type + '-cell" ' + style + '>' +
@@ -152,6 +152,10 @@ $().ready(function(){
 
 		//click me show more
 		$('#show-more').click(function() {
+			showMore();
+		});
+
+		function showMore() {
 			var hash = getTypeHash();
 			var activedId;
 			if(hash) {
@@ -165,16 +169,24 @@ $().ready(function(){
 			if(element.children().length > 0) {
 				$('.photo-box').append(element);
 			}
+		}
+
+		window.addEventListener('scroll', function() {
+			var scrollY = window.scrollY;
+			var photoBoxHeight = $('.photo-box').height();
+			if(photoBoxHeight - scrollY < 400) {
+				showMore();	
+			}
 		});
 
 		(function start() {
 			var hash = getTypeHash();
 			if(hash) {
-					$('#' + hash).click();
+				$('#' + hash).click();
 			} else {
 				$('#us-photo').click();
 			}
-		})()
+		})();
 	}
 
 })
