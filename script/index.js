@@ -1,4 +1,9 @@
 $().ready(function(){
+	var SCREEN_WIDTH = $('body').width();
+	var ROW_IMG_SIZE = SCREEN_WIDTH > 768 ? 4 : 2;
+	var CELL_SPACE = 3; //px
+	var ROW_WIDTH = $('.photo-box').width();
+	var LOAD_SIZE_ONE_TIME = 16;
 
 	$.get('./script/photos.json', function(data) {
 		callback(data);
@@ -42,7 +47,7 @@ $().ready(function(){
 			this.list = photoList;
 			this.listLen = photoList.length;
 			this.count = 0;
-			this.size = 15; //how many photos loading at one time
+			this.size = LOAD_SIZE_ONE_TIME; //how many photos loading at one time
 			this.MAX_COUNT = this.listLen < this.size ? 1 : parseInt(this.listLen/this.size) + 1;
 		}
 
@@ -61,21 +66,63 @@ $().ready(function(){
 			} else {
 				end = start + config.size;
 			}
-			for(var i = start;i < end; i++){
+			var rowCount = config.size / ROW_IMG_SIZE;
+			var step = start;
+
+			for (var j = 0;j < rowCount; j++) {
+				var imgGroup = [];
+				for(var i = 0;i < ROW_IMG_SIZE;i++) {
+					imgGroup.push(config.list[step+i]);
+				}
+				calculateImgSizeInGroup(imgGroup, ROW_WIDTH);
+				step += ROW_IMG_SIZE;
+			}
+
+			for(var k = start;k < end;k++) {
+				var style = 'style="width:' + config.list[k].width/ROW_WIDTH*100 + '%;height:' + config.list[k].height + 'px;"';
+				var iconSrc = "../img/like.png";
+				var createdAt = config.list[k].width > 270 ? "Posted on " + config.list[k].created_at : "Posted on...";
 				var photoCell = $(
-					'<div class="'+ type +'-cell">' +
-		                '<img src="' + config.list[i].file_name + '">' +
+					'<div class="'+ type + '-cell" ' + style + '>' +
+		                '<img src="' + config.list[k].file_name + '">' +
 		                '<div class="photo-description">'+
-		                	'<div class="info">Posted on ' + config.list[i].created_at + '</div> ' +
-		                	'<div class="tool count">' + config.list[i].like + '</div>' +
-		                	'<div class="tool like"></div>' +
+		                	'<div class="info" title="Post on ' + config.list[k].created_at + '">' + createdAt + '</div> ' +
+		                	'<div class="tool count">' + config.list[k].like + '</div>' +
+		                	'<div class="tool"><img class="like" src=' + '"' + iconSrc + '" /></div>' +
 		                '</div>' +
 		            '</div>'
 		        );
 		        element.append(photoCell);
 			}
+			
 			config.count++;
 
+		}
+
+		function calculateImgSizeInGroup(imgGroup, rowWidth) {
+			var minHeight = imgGroup[0].height;
+
+			imgGroup.forEach(function(img) {
+				if(img.height < minHeight) {
+					minHeight = img.height;
+				}
+			});
+
+			var totalWidth = 0; 
+
+			imgGroup.forEach(function(img) {
+				var heightRate = minHeight/img.height;
+				img.width = img.width * heightRate; 
+				totalWidth += img.width;
+			});
+
+			var zoomRate = rowWidth/totalWidth;
+
+			imgGroup.forEach(function(img) {
+				img.width = Math.floor(img.width * zoomRate) - CELL_SPACE * 2;
+				img.height = Math.floor(minHeight * zoomRate) - CELL_SPACE * 2;
+			});
+			
 		}
 
 		function creaetFakeLoadingStyle() {

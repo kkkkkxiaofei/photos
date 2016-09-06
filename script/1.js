@@ -1,4 +1,5 @@
 var fs = require('fs');
+var sizeOf = require('image-size');
 
 function wirteToXML(obj) {
     var data = JSON.stringify(obj.img);
@@ -21,13 +22,16 @@ function readDir(dir, obj, key) {
         }
     } else {
         var stat = fs.statSync(dir);
+        var imgSize = sizeOf(dir); 
         if(dir.indexOf('DS_Store') == -1) {
             var date = new Date(stat.birthtime);
             var src = dir.substr(3);
             obj.array.push({
                 'file_name': src,
                 'created_at': key,
-                'like': Math.floor(Math.random() * new Date().getMilliseconds()) 
+                'like': Math.floor(Math.random() * new Date().getMilliseconds()),
+                'width': imgSize.width,
+                'height': imgSize.height 
             });
         }
     }

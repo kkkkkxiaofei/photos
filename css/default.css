@@ -2,10 +2,11 @@
 	background-image: url('../img/back.jpg');
 	background-repeat: repeat;
 	background-color: #000;
+	margin: 0;
 }
 
 .title {
-	width: 70%;
+	width: 90%;
 	height: 180px;
 	margin: 50px auto 70px auto;
 	background-color: #fff;
@@ -39,7 +40,7 @@
 }
 
 .photo-box {
-	width: 70%;
+	width: 90%;
 	height: 100%;
 	margin: 0 auto 0 auto;
 }
@@ -52,8 +53,8 @@
 
 
 .photo-description {
-	height: 20px;
-	line-height: 20px;
+	height: 40px;
+	line-height: 40px;
 	width: 100%;
 	background-color: #000;
 	position: absolute;
@@ -79,8 +80,6 @@
 }
 
 .like {
-	background-image: url('../img/like.png');
-	background-repeat: no-repeat;
 	width: 20px;
 	height: 20px;
 }
@@ -195,9 +194,9 @@
 	.photo-box .family-photo,
 	.photo-box .life-photo,
 	.photo-box .favorite-photo {
-		-webkit-column-count: 2;
-		-moz-column-count: 2;
-		column-count: 2;
+		/*-webkit-column-count: 2;*/
+		/*-moz-column-count: 2;*/
+		/*column-count: 2;*/
 	}
 
 	#show-more {
@@ -316,29 +315,23 @@
 .family-photo,
 .life-photo,
 .favorite-photo {
-	-webkit-column-count: 3;
-	-webkit-column-gap: 3px;
-	-moz-column-count: 3;
-	-moz-column-gap: 3px;
-	column-count: 3;
-	column-gap: 3px;
-	border: 10px solid white;
-	margin: 20px 0;
+	
 }
 
 .us-photo .us-photo-cell,
 .family-photo .family-photo-cell,
 .life-photo .life-photo-cell,
 .favorite-photo .favorite-photo-cell {
-	margin-bottom: 3px;
+	margin: 3px;
 	position: relative;
+	display: inline-block;
 }
 
 .us-photo .us-photo-cell:hover .photo-description, 
 .family-photo .family-photo-cell:hover .photo-description, 
 .life-photo .life-photo-cell:hover .photo-description, 
 .favorite-photo .favorite-photo-cell:hover .photo-description {
-	bottom: 0px;
+	bottom: -3px;
 	opacity: .8;
 }
 
@@ -356,35 +349,20 @@
 
 /* family-photo */
 .family-photo {
-	-webkit-column-count: 3;
-	-webkit-column-gap: 3px;
-	-moz-column-count: 3;
-	-moz-column-gap: 3px;
-	column-count: 3;
-	column-gap: 3px;
+	
 }
 
 /* family-photo end*/
 
 /* life-photo */
 .life-photo {
-	-webkit-column-count: 3;
-	-webkit-column-gap: 3px;
-	-moz-column-count: 3;
-	-moz-column-gap: 3px;
-	column-count: 3;
-	column-gap: 3px;
+	
 }
 /* life-photo end*/
 
 /* favorite-photo */
 .family-photo {
-	-webkit-column-count: 3;
-	-webkit-column-gap: 3px;
-	-moz-column-count: 3;
-	-moz-column-gap: 3px;
-	column-count: 3;
-	column-gap: 3px;
+	
 }
 /* favorite-photo end*/
 
