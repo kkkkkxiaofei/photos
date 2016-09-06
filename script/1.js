@@ -27,7 +27,7 @@ function readDir(dir, obj, key) {
             obj.array.push({
                 'file_name': src,
                 'created_at': key,
-                'like': Math.floor(Math.random() * 1000 + 1 )
+                'like': Math.floor(Math.random() * new Date().getMilliseconds()) 
             });
         }
     }
