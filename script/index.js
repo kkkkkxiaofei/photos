@@ -1,29 +1,37 @@
 $().ready(function(){
-	var SCREEN_WIDTH = $('body').width();
-	var ROW_IMG_SIZE = SCREEN_WIDTH > 768 ? 4 : 2;
-	var CELL_SPACE = 3; //px
-	var ROW_WIDTH = $('.photo-box').width();
-	var LOAD_SIZE_ONE_TIME = 16;
 
-	$.get('./script/photos.json', function(data) {
-		callback(data);
-	});
+	$('.wrapper').css('display', 'none');
 
-	function getTypeHash() {
-		return window.location.hash.substr(1);
-	}
-
-	function getPhotosByType(type, data) {
-		var store = data[type];
-		var dates = Object.keys(store).slice(1).sort().reverse();
-		var photos = [];
-		dates.forEach(function(date) {
-			photos = photos.concat(store[date].array);
+	$('#entry').click(function() {
+		var pwd = $('#pwd').val();
+		$.get(pwd, function(data) {
+			$('.wrapper').css('display', 'block');
+			$('.entry').css('display', 'none');
+			callback(data);
 		});
-		return photos;
-	}
+	}); 
 
 	function callback(data) {
+		
+		var SCREEN_WIDTH = $('body').width();
+		var ROW_IMG_SIZE = SCREEN_WIDTH > 768 ? 4 : 2;
+		var CELL_SPACE = 3; //px
+		var ROW_WIDTH = $('.photo-box').width();
+		var LOAD_SIZE_ONE_TIME = 16;
+
+		function getTypeHash() {
+			return window.location.hash.substr(1);
+		}
+
+		function getPhotosByType(type, data) {
+			var store = data[type];
+			var dates = Object.keys(store).slice(1).sort().reverse();
+			var photos = [];
+			dates.forEach(function(date) {
+				photos = photos.concat(store[date].array);
+			});
+			return photos;
+		}
 
 		var usList = getPhotosByType("us-photo", data);
 		var familyList = getPhotosByType("family-photo", data);
@@ -174,9 +182,13 @@ $().ready(function(){
 		window.addEventListener('scroll', function() {
 			var scrollY = window.scrollY;
 			var photoBoxHeight = $('.photo-box').height();
-			if(photoBoxHeight - scrollY < 400) {
-				showMore();	
+			if(photoBoxHeight - scrollY < 500) {
+				setTimeout(showMore, 300);
 			}
+		});
+
+		$('#top').click(function() {
+			window.scrollTo(0, 0);
 		});
 
 		(function start() {
