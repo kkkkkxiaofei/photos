@@ -1,17 +1,21 @@
 $().ready(function(){
 
 	function getPhotos(url) {
-		$.get(url, function(data) {
-			$('.wrapper').css('display', 'block');
-			$('#pwd-container').css('display', 'none');
-			callback(data);
-		});
+		if(url) {
+			$.get(url, function(data) {
+				$('.wrapper').css('display', 'block');
+				$('#pwd-container').css('display', 'none');
+				callback(data);	
+			});
+		}
 	}
 
 	var pwd = window.location.search.replace('?', '');
 	
 	if(pwd) {
 		getPhotos(pwd);
+	} else {
+		$('#pwd-container').css('display', 'block');
 	}
 
 	$('#entry').click(function() {
@@ -95,7 +99,8 @@ $().ready(function(){
 			}
 
 			for(var k = start;k < end;k++) {
-				var width = new Number(config.list[k].width/ROW_WIDTH*100).toFixed(1);
+				// var width = new Number(config.list[k].width/ROW_WIDTH*100).toFixed(1);
+				var width = config.list[k].width/ROW_WIDTH*100;
 				var style = 'style="width:' + width + '%;height:' + config.list[k].height + 'px;"';
 				var iconSrc = "./img/like.png";
 				var createdAt = config.list[k].width > 270 ? "Posted on " + config.list[k].created_at : "Posted on...";

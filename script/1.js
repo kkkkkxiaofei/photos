@@ -22,8 +22,8 @@ function readDir(dir, obj, key) {
         }
     } else {
         var stat = fs.statSync(dir);
-        var imgSize = sizeOf(dir); 
-        if(dir.indexOf('DS_Store') == -1) {
+        if(dir.indexOf('.DS_Store') == -1) {
+            var imgSize = sizeOf(dir);
             var date = new Date(stat.birthtime);
             var src = dir.substr(3);
             obj.array.push({

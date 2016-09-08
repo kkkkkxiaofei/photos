@@ -133,6 +133,7 @@
     position: absolute;
     top: 200px;
     left: calc(50% - 125px);
+    display: none;
 }
 
 #pwd-container > div {
