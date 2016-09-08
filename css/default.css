@@ -129,10 +129,10 @@
 /* pwd container */
 
 #pwd-container {
-	width: 230px;
+	width: 250px;
     position: absolute;
     top: 200px;
-    left: calc(50% - 115px);
+    left: calc(50% - 125px);
 }
 
 #pwd-container > div {
