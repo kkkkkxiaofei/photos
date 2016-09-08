@@ -1,16 +1,24 @@
 $().ready(function(){
 
-	$('.wrapper').css('display', 'none');
+	function getPhotos(url) {
+		$.get(url, function(data) {
+			$('.wrapper').css('display', 'block');
+			$('#pwd-container').css('display', 'none');
+			callback(data);
+		});
+	}
+
+	var pwd = window.location.search.replace('?', '');
+	
+	if(pwd) {
+		getPhotos(pwd);
+	}
 
 	$('#entry').click(function() {
 		var pwd = $('#pwd').val();
-		$.get(pwd, function(data) {
-			$('.wrapper').css('display', 'block');
-			$('.entry').css('display', 'none');
-			callback(data);
-		});
-	}); 
-
+		getPhotos(pwd);
+	});
+	
 	function callback(data) {
 		
 		var SCREEN_WIDTH = $('body').width();
@@ -87,7 +95,8 @@ $().ready(function(){
 			}
 
 			for(var k = start;k < end;k++) {
-				var style = 'style="width:' + config.list[k].width/ROW_WIDTH*100 + '%;height:' + config.list[k].height + 'px;"';
+				var width = new Number(config.list[k].width/ROW_WIDTH*100).toFixed(1);
+				var style = 'style="width:' + width + '%;height:' + config.list[k].height + 'px;"';
 				var iconSrc = "./img/like.png";
 				var createdAt = config.list[k].width > 270 ? "Posted on " + config.list[k].created_at : "Posted on...";
 				var photoCell = $(

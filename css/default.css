@@ -5,6 +5,10 @@
 	margin: 0;
 }
 
+.wrapper {
+	display: none;
+}
+
 .title {
 	width: calc(90% - 6px);
 	height: 100px;
@@ -46,7 +50,7 @@
 
 .photo-box {
 	width: 90%;
-	height: 100%;
+	min-height: 100%;
 	margin: 100px auto 0 auto;
 }
 
@@ -125,8 +129,10 @@
 /* pwd container */
 
 #pwd-container {
-	width: 290px;
-	margin: 300px auto;
+	width: 230px;
+    position: absolute;
+    top: 200px;
+    left: calc(50% - 115px);
 }
 
 #pwd-container > div {
@@ -135,17 +141,23 @@
 
 #pwd {
 	width: 220px;
-    height: 40px;
+    height: 46px;
     border-radius: 10px;
     font-size: 22px;
+    color: #ccc;
+    font-family: serif;
 }
 
 #entry {
-	margin-top: 0;
 	display: inline-block;
-	font-size: 46px;
-	vertical-align: middle;
-	cursor: pointer;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: -50px;
+}
+
+#entry img {
+	width: 46px;
+    height: 46px;
 }
 
 .loading{
@@ -222,6 +234,9 @@
 		line-height: 20px;
 	}
 	.info {
+		display: none;
+	}
+	#top {
 		display: none;
 	}
 }
@@ -332,7 +347,7 @@
 .life-photo img, 
 .favorite-photo img {
 	width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
     vertical-align: middle;
 }
 
