@@ -92,29 +92,41 @@ $().ready(function(){
 			for (var j = 0;j < rowCount; j++) {
 				var imgGroup = [];
 				for(var i = 0;i < ROW_IMG_SIZE;i++) {
-					imgGroup.push(config.list[step+i]);
+					var imgObj = config.list[step+i];
+					if(imgObj) {
+						imgGroup.push(imgObj);
+					} else {
+						var firstImgObjInPreviousRow = config.list[(step%ROW_IMG_SIZE)*ROW_IMG_SIZE];
+						var placeHolder = {
+							height: firstImgObjInPreviousRow.height,
+							width: firstImgObjInPreviousRow.width
+						};
+						imgGroup.push(placeHolder);
+					}
 				}
 				calculateImgSizeInGroup(imgGroup, ROW_WIDTH);
 				step += ROW_IMG_SIZE;
 			}
 
 			for(var k = start;k < end;k++) {
-				// var width = new Number(config.list[k].width/ROW_WIDTH*100).toFixed(1);
-				var width = config.list[k].width/ROW_WIDTH*100;
-				var style = 'style="width:' + width + '%;height:' + config.list[k].height + 'px;"';
-				var iconSrc = "./img/like.png";
-				var createdAt = config.list[k].width > 270 ? "Posted on " + config.list[k].created_at : "Posted on...";
-				var photoCell = $(
-					'<div class="'+ type + '-cell" ' + style + '>' +
-		                '<img src="' + config.list[k].file_name + '">' +
-		                '<div class="photo-description">'+
-		                	'<div class="info" title="Post on ' + config.list[k].created_at + '">' + createdAt + '</div> ' +
-		                	'<div class="tool count">' + config.list[k].like + '</div>' +
-		                	'<div class="tool"><img class="like" src=' + '"' + iconSrc + '" /></div>' +
-		                '</div>' +
-		            '</div>'
-		        );
-		        element.append(photoCell);
+				var file_name = config.list[k].file_name;
+				if(file_name) {
+					var width = config.list[k].width/ROW_WIDTH*100;
+					var style = 'style="width:' + width + '%;height:' + config.list[k].height + 'px;"';
+					var iconSrc = "./img/like.png";
+					var createdAt = config.list[k].width > 270 ? "Posted on " + config.list[k].created_at : "Posted on...";
+					var photoCell = $(
+						'<div class="'+ type + '-cell" ' + style + '>' +
+			                '<img src="' + config.list[k].file_name + '">' +
+			                '<div class="photo-description">'+
+			                	'<div class="info" title="Post on ' + config.list[k].created_at + '">' + createdAt + '</div> ' +
+			                	'<div class="tool count">' + config.list[k].like + '</div>' +
+			                	'<div class="tool"><img class="like" src=' + '"' + iconSrc + '" /></div>' +
+			                '</div>' +
+			            '</div>'
+			        );
+			        element.append(photoCell);
+				}
 			}
 			
 			config.count++;
@@ -193,11 +205,11 @@ $().ready(function(){
 			}
 		}
 
-		window.addEventListener('scroll', function() {
-			var scrollY = window.scrollY;
+		window.addEventListener('scroll', function(e) {
 			var photoBoxHeight = $('.photo-box').height();
-			if(photoBoxHeight - scrollY < 500) {
-				setTimeout(showMore, 300);
+			var scrollY = window.scrollY;
+			if(photoBoxHeight - scrollY < 600) {
+				showMore();
 			}
 		});
 
