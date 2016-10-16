@@ -10,7 +10,7 @@ $().ready(function(){
 		}
 	}
 
-	var pwd = window.location.search.replace('?', '');
+	var pwd = window.location.search.replace(/\?|\=/g, '');
 	
 	if(pwd) {
 		getPhotos(pwd);
