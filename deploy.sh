@@ -1,4 +1,3 @@
-cp -r ../blog-photos/_site/* .
 echo "Please enter the version:"
 read version
 date_time=`date +'%m%d'`
